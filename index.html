@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido Especial 💌</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #d63384;
+    }
+
+    #resposta {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #ff0066;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #sim {
+      background-color: #ff66b2;
+      color: white;
+    }
+
+    #nao {
+      background-color: #ccc;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quer namorar comigo? 💖</h1>
+  <div>
+    <button id="sim">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+  <div id="resposta"></div>
+
+  <script>
+    let tentativas = 0;
+    const simBtn = document.getElementById("sim");
+    const naoBtn = document.getElementById("nao");
+    const resposta = document.getElementById("resposta");
+
+    simBtn.addEventListener("click", () => {
+      resposta.textContent = "Te amo ❤️";
+      simBtn.style.display = "none";
+      naoBtn.style.display = "none";
+    });
+
+    naoBtn.addEventListener("click", () => {
+      tentativas++;
+      if (tentativas < 3) {
+        resposta.textContent = "Tente de novo 😢";
+      } else {
+        resposta.textContent = "Agora só tem uma opção... 😏";
+        naoBtn.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
